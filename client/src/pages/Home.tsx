@@ -1,33 +1,29 @@
-import { useAuth } from "@/_core/hooks/useAuth";
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { APP_LOGO, APP_TITLE, getLoginUrl } from "@/const";
-import { Streamdown } from 'streamdown';
+import { Header } from "@/components/landing/Header";
+import { HeroSection } from "@/components/landing/HeroSection";
+import { FeaturesSection } from "@/components/landing/FeaturesSection";
+import { BenefitsSection } from "@/components/landing/BenefitsSection";
+import { GuaranteeSection } from "@/components/landing/GuaranteeSection";
+import { PricingSection } from "@/components/landing/PricingSection";
+import { FAQSection } from "@/components/landing/FAQSection";
+import { ContactSection } from "@/components/landing/ContactSection";
+import { Footer } from "@/components/landing/Footer";
+import { ChatbotWidget } from "@/components/landing/ChatbotWidget";
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Workflow, Frontend Best Practices, Design Guide and Common Pitfalls
- */
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  let { user, loading, error, isAuthenticated, logout } = useAuth();
-
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
-
-  // Use APP_LOGO (as image src) and APP_TITLE if needed
-
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen">
+      <Header />
       <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
+        <HeroSection />
+        <FeaturesSection />
+        <BenefitsSection />
+        <GuaranteeSection />
+        <PricingSection />
+        <FAQSection />
+        <ContactSection />
       </main>
+      <Footer />
+      <ChatbotWidget />
     </div>
   );
 }
