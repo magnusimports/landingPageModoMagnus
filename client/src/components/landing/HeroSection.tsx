@@ -78,8 +78,11 @@ export function HeroSection() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="/hero_image_1.png"
-                alt="Pessoa criando landing page profissional"
+                alt="Pessoa criando landing page profissional no computador"
                 className="w-full h-auto"
+                loading="eager"
+                width="600"
+                height="400"
               />
               {/* Overlay gradient for better text visibility if needed */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />

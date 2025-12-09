@@ -83,7 +83,8 @@ modo-magnus-landing/
 
 - Node.js 18+
 - pnpm (gerenciador de pacotes)
-- Conta Manus (para deploy)
+- Banco de dados MySQL (para desenvolvimento local)
+- Chave da API do Google Gemini
 
 ### Instalação
 
@@ -218,10 +219,29 @@ Todos os componentes UI são do shadcn/ui:
 ```bash
 pnpm dev          # Inicia servidor de desenvolvimento
 pnpm build        # Build para produção
-pnpm preview      # Preview do build
+pnpm start        # Inicia servidor de produção
 pnpm db:push      # Aplica migrações do banco
-pnpm lint         # Executa linter
+pnpm check        # Verifica tipos TypeScript
+pnpm format       # Formata código com Prettier
 ```
+
+## 🌐 Deploy
+
+### Netlify (Recomendado)
+
+Veja o guia completo em [DEPLOY_NETLIFY.md](./DEPLOY_NETLIFY.md)
+
+**Deploy rápido:**
+1. Conecte o repositório no Netlify
+2. Configure build: `pnpm install && pnpm build`
+3. Publish directory: `dist/public`
+4. Adicione variáveis de ambiente
+5. Deploy!
+
+### Outras Plataformas
+- **Vercel**: Compatível com configuração similar
+- **Render**: Suporta frontend + backend
+- **Railway**: Deploy completo com banco de dados
 
 ## 📝 Roadmap
 
@@ -230,6 +250,8 @@ pnpm lint         # Executa linter
 - [x] Formulário de captura de leads
 - [x] Design responsivo
 - [x] Animações e transições
+- [x] Otimização para SEO
+- [x] Configuração para deploy no Netlify
 - [ ] Integração com gateway de pagamento
 - [ ] Painel administrativo para leads
 - [ ] Testes A/B

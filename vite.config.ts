@@ -4,10 +4,19 @@ import react from "@vitejs/plugin-react";
 import fs from "node:fs";
 import path from "path";
 import { defineConfig } from "vite";
-import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
+// Conditionally load Manus plugin only if available
+let manusPlugin = null;
+try {
+  if (process.env.VITE_USE_MANUS_RUNTIME === 'true') {
+    const { vitePluginManusRuntime } = await import('vite-plugin-manus-runtime');
+    manusPlugin = vitePluginManusRuntime();
+  }
+} catch (e) {
+  // Manus plugin not available, continue without it
+}
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), manusPlugin].filter(Boolean);
 
 export default defineConfig({
   plugins,

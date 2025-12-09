@@ -69,6 +69,9 @@ export function FeaturesSection() {
                         src={feature.image}
                         alt={feature.title}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        width="400"
+                        height="300"
                       />
                     </div>
                   ) : (

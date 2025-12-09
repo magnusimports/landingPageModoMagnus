@@ -18,8 +18,8 @@ export function Header() {
       <div className="container">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2 cursor-pointer" onClick={() => scrollToSection("hero")}>
-            <img src="/logo_modo_magnus.png" alt="Modo Magnus" className="h-8" />
+          <div className="flex items-center space-x-2 cursor-pointer" onClick={() => scrollToSection("hero")} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && scrollToSection("hero")}>
+            <img src="/logo_modo_magnus.png" alt="Modo Magnus - Logo" className="h-8" width="120" height="32" />
           </div>
 
           {/* Desktop Navigation */}
@@ -45,7 +45,8 @@ export function Header() {
           <button
             className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
